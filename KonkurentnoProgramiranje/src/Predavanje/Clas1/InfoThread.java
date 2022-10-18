@@ -1,3 +1,5 @@
+package Predavanje.Clas1;
+
 public class InfoThread implements Runnable {
 	
 	public void run() {
