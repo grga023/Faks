@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Faks.iml" filepath="$PROJECT_DIR$/.idea/Faks.iml" />
       <module fileurl="file://$PROJECT_DIR$/KonkurentnoProgramiranje/KonkurentnoProgramiranje.iml" filepath="$PROJECT_DIR$/KonkurentnoProgramiranje/KonkurentnoProgramiranje.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ObjektnoOrjentisanoProgramiranje/ObjektnoOrjentisanoProgramiranje.iml" filepath="$PROJECT_DIR$/ObjektnoOrjentisanoProgramiranje/ObjektnoOrjentisanoProgramiranje.iml" />
     </modules>
   </component>
 </project>
