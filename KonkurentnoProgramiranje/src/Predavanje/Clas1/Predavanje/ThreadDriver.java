@@ -1,5 +1,3 @@
-package Predavanje.Clas1;
-
 public class ThreadDriver {
 	public static void main(String[] args){
 		

@@ -1,5 +1,3 @@
-package Predavanje.Clas1;
-
 public class InfoThread implements Runnable {
 	
 	public void run() {
@@ -19,7 +17,6 @@ public class InfoThread implements Runnable {
 				Thread.sleep(1000);
 			}
 		} catch (Exception ex) {
-			System.out.println("end");
 		}	
 
 		System.out.println("[" + th.getId() + "] " + th.getName() + " is terminated");
