@@ -5,6 +5,7 @@ public class InfoThread extends Thread{
     private int threadID;
     /* internal counter */
     private int counter;
+    private int i = 0;
     /* max count */
     private final int maxCount;
     private final int minCount;
@@ -32,12 +33,17 @@ public class InfoThread extends Thread{
         System.out.println(" +++ Thread[" + threadID + "] started +++ ");
 
         while(!bTerminateThread) {
+            setI();
             while(this.counter < this.maxCount && direction) {
                 /* check to see if thread should stop working */
                 if(bTerminateThread) {
                     break;
                 }
                 ++this.counter;
+                if (i<maxCount) {
+                    System.out.println("["+threadID+"] Count up: " + this.counter);
+                    i++;
+                }
                 if(this.counter == this.maxCount) {
                     this.counter = 0;
                 }
@@ -48,6 +54,12 @@ public class InfoThread extends Thread{
                     break;
                 }
                 --this.counter;
+
+                if (i<minCount) {
+                    System.out.println("["+threadID+"] Count down: " + this.counter);
+                    i++;
+                }
+
                 if(this.counter == this.minCount) {
                     this.counter = maxCount;
                 }
@@ -94,4 +106,7 @@ public class InfoThread extends Thread{
         this.counter = maxCount;
     }
 
+    public void setI(){
+        this.i=0;
+    }
 }
