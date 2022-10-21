@@ -21,13 +21,13 @@ public class ThreadDriver {
 
         th.setDaemon(false);
 
-        while (isTerminated) {
-            try {
+        while (!isTerminated) {
+
                 System.out.println("Insert: ");
                 Scanner scanner = new Scanner(System.in);
                 String input = scanner.nextLine();
 
-                switch (input){
+                switch (input) {
                     case "s":
                         th.start();
                         break;
@@ -46,10 +46,6 @@ public class ThreadDriver {
                         isTerminated = true;
                         break;
                 }
-
-                Thread.sleep(500);
-            } catch (InterruptedException ex) {
-            }
         }
 
         try {
