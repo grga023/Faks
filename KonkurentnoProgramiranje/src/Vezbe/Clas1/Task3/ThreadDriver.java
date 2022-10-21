@@ -50,11 +50,19 @@ public class ThreadDriver extends Thread {
                     terminateAll = true;
                     break;
                 case 'u':
+                    th1.setI(0);
+                    th2.setI(0);
+                    th3.setI(0);
+
                     th1.incrementing();
                     th2.incrementing();
                     th3.incrementing();
                     break;
                 case 'd':
+                    th1.setI(th1.getMaxCount());
+                    th2.setI(th2.getMaxCount());
+                    th3.setI(th3.getMaxCount());
+
                     th1.decrementing();
                     th2.decrementing();
                     th3.decrementing();
