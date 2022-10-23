@@ -25,9 +25,6 @@ public class InfoThread extends Thread{
         this.direction = true;
     }
 
-    /**
-     * Thread code goes here
-     */
     public void run() {
 
         System.out.println(" +++ Thread[" + threadID + "] started +++ ");
@@ -88,12 +85,11 @@ public class InfoThread extends Thread{
         this.counter = counter;
     }
 
-    /**
-     * @return the maxCount
-     */
     public int getMaxCount() {
         return maxCount;
     }
+
+    private int getMinCount(){return minCount;}
 
 
     public void terminateThread(){
@@ -112,7 +108,7 @@ public class InfoThread extends Thread{
         setI(maxCount);
     }
 
-    public void setI(int n){
+    private void setI(int n){
         this.i=n;
     }
 }

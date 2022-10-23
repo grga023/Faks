@@ -24,23 +24,22 @@ public class ThreadDriver extends Thread {
         while(!terminateAll) {
             System.out.println("Insert: ");
             key = keyboard.next().charAt(0);
-            switch(key) {
-                case '1':
+            switch (key) {
+                case '1' -> {
                     th1.start();
                     th2.start();
                     th3.start();
-                    break;
-                case '?':
+                }
+                case '?' -> {
                     /* print counter state */
                     System.out.println("Thread[" + th1.getThreadID() + "]=" + th1.getCounter());
                     System.out.println("Thread[" + th2.getThreadID() + "]=" + th2.getCounter());
                     System.out.println("Thread[" + th3.getThreadID() + "]=" + th3.getCounter());
-
                     System.out.println("Thread[" + th1.getThreadID() + "]=" + th1.getState());
                     System.out.println("Thread[" + th2.getThreadID() + "]=" + th2.getState());
                     System.out.println("Thread[" + th3.getThreadID() + "]=" + th3.getState());
-                    break;
-                case 't':
+                }
+                case 't' -> {
                     /* terminate all child threads */
                     th1.terminateThread();
                     th2.terminateThread();
@@ -48,27 +47,19 @@ public class ThreadDriver extends Thread {
                     /* terminate the main thread */
 
                     terminateAll = true;
-                    break;
-                case 'u':
-                    th1.setI(0);
-                    th2.setI(0);
-                    th3.setI(0);
-
+                }
+                case 'u' -> {
                     th1.incrementing();
                     th2.incrementing();
                     th3.incrementing();
-                    break;
-                case 'd':
-                    th1.setI(th1.getMaxCount());
-                    th2.setI(th2.getMaxCount());
-                    th3.setI(th3.getMaxCount());
-
+                }
+                case 'd' -> {
                     th1.decrementing();
                     th2.decrementing();
                     th3.decrementing();
-                    break;
-                default:
-                    break;
+                }
+                default -> {
+                }
             }
 
         }
