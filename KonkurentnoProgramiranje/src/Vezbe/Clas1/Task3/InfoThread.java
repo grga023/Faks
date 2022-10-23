@@ -103,11 +103,13 @@ public class InfoThread extends Thread{
     public void incrementing(){
         this.direction = true;
         this.counter = 0;
+        setI(0);
     }
 
     public void decrementing(){
         this.direction = false;
         this.counter = maxCount;
+        setI(33);
     }
 
     public void setI(int n){
