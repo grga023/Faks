@@ -1,4 +1,4 @@
-package Predavanje.Clas1.Vezbe;
+package Predavanje.Clas1.Vezbe.Task1;
 
 public class ChangableStateThread implements Runnable{
     public void run() {

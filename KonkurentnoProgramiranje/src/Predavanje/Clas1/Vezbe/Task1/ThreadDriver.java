@@ -1,7 +1,12 @@
-package Predavanje.Clas1.Vezbe;
+package Predavanje.Clas1.Vezbe.Task1;
 import java.util.Scanner;
 
 public class ThreadDriver {
+
+    public static Thread createTh(){
+        Thread th = new Thread(new ChangableStateThread(), "ChangableTh");
+        return th;
+    }
     public static void main(String[] args){
 
 
@@ -11,18 +16,18 @@ public class ThreadDriver {
         System.out.println();
 
         // create two threads
-        Thread th = new Thread(new ChangableStateThread(), "ChangableTh");
-
 
         // check thread state
-        System.out.println(th.getState());
-
+        Thread th = createTh();
+        int counter = 1;
         boolean isTerminated = false;
-
-        th.setDaemon(false);
 
         while (!isTerminated) {
 
+            if(counter<1){
+                th = createTh();
+                counter = 1;
+            }
                 System.out.println("Insert: ");
                 Scanner scanner = new Scanner(System.in);
                 String input = scanner.nextLine();
@@ -30,6 +35,7 @@ public class ThreadDriver {
                 switch (input) {
                     case "s":
                         th.start();
+                        counter--;
                         break;
                     case "e":
                         th.interrupt();
