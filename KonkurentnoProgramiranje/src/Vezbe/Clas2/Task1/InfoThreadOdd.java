@@ -1,37 +1,73 @@
 package Vezbe.Clas2.Task1;
 
 public class InfoThreadOdd extends Thread{
-    Thread th = Thread.currentThread();
-    private int maxCount = 0;
-    private int counter=1;
-    private boolean isTerminated =false;
-    public InfoThreadOdd(int maxCount){
+    private int maxCount;
+    private int counter;
+    private int n;
+    private  int counterOdd[];
+
+    private volatile boolean isTerminated = false;
+    private int threadID = 0;
+
+    public InfoThreadOdd(int maxCount, int threadID){
+        super();
+        this.counter = 1;
+        this.threadID = threadID;
         this.maxCount = maxCount;
-        this.isTerminated = false;
+        n = maxCount/2;
+        counterOdd = new int[maxCount];
+        this.counterOdd = createOddCounter();
+    }
+
+    public int[] createOddCounter(){
+        n = 0;
+        for(int i = 1; i <= maxCount; i++){
+            if(i % 2 == 1){
+                counterOdd[n] = i;
+                n++;
+            }
+        }
+        return counterOdd;
     }
 
     @Override
     public void run() {
-        System.out.println(" --- Thread[" + th.threadId() + "] started --- ");
-        int n = 0;
         while (!isTerminated){
-            if(counter % 2 == 1 || counter == 1){
-                if(n<maxCount/2){
-                    System.out.println("["+th.threadId()+"] "+counter);
-                    n++;
+            System.out.println(" --- Thread[" + getThreadID() + "] started --- ");
+            while (this.counter < this.maxCount){
+                int m = 0;
+                for(int i = 0; i<=n; i++){
+                    if(isTerminated){
+                        break;
+                    }
+
+                    if (m < maxCount/2 ) {
+                        System.out.println("[" + getThreadID() + "] " + counterOdd[i]);
+                        m++;
+                    }
+
+                    this.counter = counterOdd[i];
+
+                    if(i+1 == n) {
+                        i = 0;
+                    }
                 }
+                if(isTerminated){
+                    break;
+                }
+
             }
 
-            counter++;
-
-            if(this.counter == this.maxCount) {
-                this.counter = 0;
-            }
+            System.out.println(" --- Thread[" + getThreadID() + "] terminated --- ");
         }
-        System.out.println(" --- Thread[" + th.threadId() + "] terminated --- ");
+
     }
 
-    public void terminateThreadOdd(){
+    public void terminateThread(){
         isTerminated = true;
     }
+
+    public int getThreadID(){return threadID;}
+
+    public  int getCounter(){return counter;}
 }

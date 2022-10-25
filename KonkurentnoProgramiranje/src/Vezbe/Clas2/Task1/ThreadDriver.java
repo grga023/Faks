@@ -1,15 +1,16 @@
 package Vezbe.Clas2.Task1;
 
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
-public class ThreadDriver {
+public class ThreadDriver extends Thread {
 
-    private static Thread evenThread(int maxCount){
-        Thread thread = new Thread(new InfoThreadEven(maxCount),"EvenTh");
+    private static InfoThreadEven evenThread(int maxCount, int id){
+        InfoThreadEven thread = new InfoThreadEven(maxCount, id);
         return thread;
     }
-    private static Thread oddThread(int maxCount){
-        Thread thread = new Thread(new InfoThreadOdd(maxCount),"OddTh");
+    private static InfoThreadOdd oddThread(int maxCount, int id){
+        InfoThreadOdd thread = new InfoThreadOdd(maxCount, id);
         return thread;
     }
 
@@ -21,26 +22,16 @@ public class ThreadDriver {
         Scanner keyboard = new Scanner(System.in);
         char key;
 
-        Thread thEven = evenThread(100);
-        Thread thOdd = oddThread(100);
-        Thread th1 = new Thread(new InfoThread(100, true), "ClasicTh");
-        Thread th2 = new Thread(new InfoThread(100, false), "StringTh");
+        InfoThreadEven thEven = evenThread(100,1);
+        InfoThreadOdd thOdd = oddThread(100, 2);
+        InfoThread th1 = new InfoThread(100, true, 3);
+        InfoThread th2 = new InfoThread(100, false, 4);
 
-        boolean isTerminated = false;
-
-        int thE = 1;
-        int thO = 1;
-        while (!isTerminated){
-            if(thE<1){
-                thEven = evenThread(100);
-                thE++;
-            }
-            if(thO<1){
-                thOdd = oddThread(100);
-                thO++;
-            }
+        boolean isTerminatedLoop = false;
 
 
+
+        while (!isTerminatedLoop){
             System.out.println("Insert: ");
             key = keyboard.next().charAt(0);
             switch (key){
@@ -48,37 +39,47 @@ public class ThreadDriver {
                     th1.start();
                     break;
                 case 'p':
-                    th1.interrupt();
+                    th1.terminateThread();
+                    thOdd.terminateThread();
+                    thEven = evenThread(100, 1);
                     thEven.start();
-                    thOdd.interrupt();
-                    thO = 0;
-                    thE = 0;
                     break;
                 case'n':
-                    thEven.interrupt();
+                    thEven.terminateThreadEven();
+                    thOdd = oddThread(100, 2);
                     thOdd.start();
-                    thE = 0;
-                    thO = 0;
                     break;
                 case't':
-                    thEven.interrupt();
-                    thOdd.interrupt();
-                    thO = 0;
-                    thE = 0;
+                    thEven.terminateThreadEven();
+                    thOdd.terminateThread();
                     break;
-                case's':
+                case'?':
+                    System.out.println("Odd counter: "+thOdd.getCounter());
+                    System.out.println("Even counter: "+thOdd.getCounter());
+                    break;
+                case 's':
                     th2.start();
-                    break;
                 case 'e':
-                    th2.interrupt();
+                    th2.terminateThread();
                     break;
                 case '`':
-                    isTerminated = true;
+                    isTerminatedLoop = true;
                     break;
+            }
+            try {
+                TimeUnit.MILLISECONDS.sleep(2000);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
         }
 
-        System.out.println("Main stopped");
-        System.out.println("---------------------");
+        try {
+            TimeUnit.MILLISECONDS.sleep(2000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        System.out.println("\n !!! Main thread terminated !!! ");
     }
 }
