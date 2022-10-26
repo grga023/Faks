@@ -54,7 +54,7 @@ public class ThreadDriver extends Thread {
                     thOdd.terminateThread();
                     break;
                 case'?':
-                    System.out.println("Odd counter: "+thOdd.getCounter());
+                    System.out.println("Odd counter: "+thEven.getCounter());
                     System.out.println("Even counter: "+thOdd.getCounter());
                     break;
                 case 's':

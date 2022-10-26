@@ -67,4 +67,8 @@ public class InfoThreadEven extends Thread{
     }
 
     public int getThreadId(){return threadId;}
+
+    public int getCounter() {
+        return counter;
+    }
 }
