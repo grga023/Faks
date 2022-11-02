@@ -43,17 +43,11 @@ public class ThreadDriver extends Thread {
                     thNum.start();
                     break;
 
-                case '+':
-                    sleep += 100;
-                    thChar.terminateThreadEven();
-                    thChar = charThread( 1 , sleep);
-                    thChar.start();
+                case 'c':
+                    thChar.isUpper();
                     break;
-                case '-':
-                    sleep -= 30;
-                    thChar.terminateThreadEven();
-                    thChar = charThread(1 , sleep);
-                    thChar.start();
+                case 's':
+                    System.out.println("Char is " +(thChar.getStats() ? "upper case. " : "lover case. ") + thChar.getLetter());
                     break;
                 case't':
                     thChar.terminateThreadEven();
@@ -69,7 +63,7 @@ public class ThreadDriver extends Thread {
                 sleep = 0;
             }
             try {
-                TimeUnit.MILLISECONDS.sleep(sleep*63);
+                TimeUnit.MILLISECONDS.sleep(2000);
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
