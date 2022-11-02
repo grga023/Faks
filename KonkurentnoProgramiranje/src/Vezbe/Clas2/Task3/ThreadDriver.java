@@ -5,8 +5,8 @@ import java.util.concurrent.TimeUnit;
 
 public class ThreadDriver extends Thread {
 
-    private static InfoThreadChar charThread( int id, long sleep){
-        InfoThreadChar thread = new InfoThreadChar( id, sleep);
+    private static InfoThreadChar charThread( int id, long sleep, char letter){
+        InfoThreadChar thread = new InfoThreadChar( id, sleep, letter);
         return thread;
     }
     private static InfoThreadNum numThread(int id,long sleep){
@@ -24,11 +24,13 @@ public class ThreadDriver extends Thread {
         long sleep;
 
         System.out.println("Unesite vrednost spavanja za thChar:");
-        sleep = keyboard.next().charAt(0);
-        InfoThreadChar thChar = charThread(1, sleep);
+        sleep = keyboard.nextLong();
+        System.out.println("Unesite karakter za thChar:");
+        char letter = keyboard.next().charAt(0);
+        InfoThreadChar thChar = charThread(1, sleep, letter);
 
         System.out.println("Unesite vrednost spavanja za thNum:");
-        sleep = keyboard.next().charAt(0);
+        sleep = keyboard.nextLong();
         InfoThreadNum thNum = numThread( 2,sleep);
 
         boolean isTerminatedLoop = false;
@@ -37,6 +39,7 @@ public class ThreadDriver extends Thread {
             System.out.println("Insert: ");
             key = keyboard.next().charAt(0);
             sleep = thChar.getSleep();
+            int ascii = (int)(thChar.getLetter());
             switch (key){
                 case 'b':
                     thChar.start();
@@ -47,23 +50,19 @@ public class ThreadDriver extends Thread {
                     thChar.isUpper();
                     break;
                 case 's':
-                    System.out.println("Char is " +(thChar.getStats() ? "upper case. " : "lover case. ") + thChar.getLetter());
+                    System.out.println("Char is " +(thChar.getStats() ? "upper case. " : "lover case. ") + thChar.getLetter()+ ", ASCII vrednos karaktera je: ["+ascii+"]");
                     break;
                 case't':
                     thChar.terminateThreadEven();
                     thNum.terminateThread();
                     isTerminatedLoop = true;
                     break;
-                case'?':
-                    System.out.println("Odd counter: "+thChar);
-                    System.out.println("Even counter: "+thNum);
-                    break;
             }
             if(key == 't'){
                 sleep = 0;
             }
             try {
-                TimeUnit.MILLISECONDS.sleep(2000);
+                TimeUnit.MILLISECONDS.sleep(sleep);
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -76,6 +75,6 @@ public class ThreadDriver extends Thread {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        System.out.println("\n !!! Main thread terminated !!! Even thread sleep time: " + thChar.getSleep());
+        System.out.println("\n !!! Main thread terminated !!! Char thread sleep time: " + thChar.getSleep());
     }
 }
