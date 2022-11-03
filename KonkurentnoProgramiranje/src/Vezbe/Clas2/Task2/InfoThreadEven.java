@@ -80,6 +80,7 @@ public class InfoThreadEven extends Thread{
     public void setThreadId(int threadId){
         this.threadId = threadId;
     }
+    public int getCounter(){return this.counter;}
 
     public long getSleep(){return sleep;}
     public int getThreadId(){return threadId;}

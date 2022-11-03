@@ -60,7 +60,7 @@ public class ThreadDriver extends Thread {
                     break;
                 case'?':
                     System.out.println("Odd counter: "+thOdd.getCounter());
-                    System.out.println("Even counter: "+thOdd.getCounter());
+                    System.out.println("Even counter: "+thEven.getCounter());
                     break;
             }
             if(key == 't'){
