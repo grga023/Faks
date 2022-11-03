@@ -41,15 +41,16 @@ public class ThreadDriver extends Thread {
             sleep = thChar.getSleep();
             int ascii = (int)(thChar.getLetter());
             switch (key){
-                case 'b':
+                case 's':
+                    thChar = charThread(1, sleep, letter);
+                    thNum = numThread( 2,sleep);
                     thChar.start();
                     thNum.start();
                     break;
-
                 case 'c':
                     thChar.isUpper();
                     break;
-                case 's':
+                case '?':
                     System.out.println("Char is " +(thChar.getStats() ? "upper case. " : "lover case. ") + thChar.getLetter()+ ", ASCII vrednos karaktera je: ["+ascii+"]");
                     break;
                 case't':

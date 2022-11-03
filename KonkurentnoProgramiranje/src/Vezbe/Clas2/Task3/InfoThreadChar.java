@@ -38,6 +38,13 @@ public class InfoThreadChar extends Thread {
     public void terminateThreadEven() {
         this.isTerminated = true;
     }
+    public boolean isTerminated(){
+        if (!this.isTerminated) {
+            return false;
+        } else {
+            return true;
+        }
+    }
     public void isUpper() {
         if(this.isUpper){
             this.isUpper = false;
