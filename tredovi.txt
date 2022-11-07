@@ -1,0 +1,8 @@
+Child thread is: NEW
+Child thread is: RUNNABLE
+Child thread is: TIMED_WAITING
+tc is: is deamon
+Child thread is: RUNNABLE
+tc is: is non deamon
+tc is: is deamon
+tc is: is non deamon
