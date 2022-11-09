@@ -1,15 +1,17 @@
-package Predavanja.Clas3;
+package Predavanja.Clas3.At2;
+
 
 public class ProdajnoMesto {
     private String tip;
     private String naziv;
 
-    public ProdajnoMesto(){
-        this.naziv = "";
-        this.tip = "";
+    public ProdajnoMesto(String naziv, String tip) {
+        this.tip = tip;
+        this.naziv = naziv;
     }
 
-    public ProdajnoMesto(String naziv, String tip) {
+    public ProdajnoMesto() {
+
     }
 
     public void setNaziv(String naziv) {
@@ -28,3 +30,4 @@ public class ProdajnoMesto {
         return tip;
     }
 }
+

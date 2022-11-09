@@ -1,4 +1,4 @@
-package Vezbe.Clas2;
+package Vezbe.Clas2.Task1;
 
 public class test {
     public static void main(String[] args) {
