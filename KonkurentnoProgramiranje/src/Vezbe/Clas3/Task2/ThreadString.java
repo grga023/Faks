@@ -30,7 +30,7 @@ public class ThreadString extends Thread{
             try {
                 File file = new File("tc.txt");
                 FileWriter thread = new FileWriter(file, true);
-                thread.write(string[counter]+" " +counter+"||");
+                thread.write(" "+string[counter]+" " +counter+"||");
                 thread.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -45,6 +45,7 @@ public class ThreadString extends Thread{
         try {
             creatstring();
         } catch (InterruptedException e) {
+            System.out.println("----------String Thread terminated--------");
             return;
         }
     }
