@@ -17,7 +17,7 @@ public class ThreadString extends Thread{
         counter = 1;
     }
 
-    private void creatstring() throws InterruptedException {
+    private void createString() throws InterruptedException {
         Random random = new Random();
         for(counter = 0; counter < maxCounter; counter++){
             int min = 97;
@@ -28,7 +28,7 @@ public class ThreadString extends Thread{
             System.out.println( "String je: "+string[counter]+"  "+counter);
 
             try {
-                File file = new File("tc.txt");
+                File file = new File("randomString.txt");
                 FileWriter thread = new FileWriter(file, true);
                 thread.write(" "+string[counter]+" " +counter+"||");
                 thread.close();
@@ -43,7 +43,7 @@ public class ThreadString extends Thread{
     @Override
     public void run() {
         try {
-            creatstring();
+            createString();
         } catch (InterruptedException e) {
             System.out.println("----------String Thread terminated--------");
             return;
