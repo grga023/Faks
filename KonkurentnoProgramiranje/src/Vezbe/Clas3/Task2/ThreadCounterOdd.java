@@ -55,6 +55,7 @@ public class ThreadCounterOdd extends Thread{
                     try {
                         Thread.sleep(500);
                     } catch (InterruptedException e) {
+                        System.out.println("----------Odd Thread terminated--------");
                         return;
                     }
                 }

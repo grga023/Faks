@@ -15,11 +15,11 @@ public class ThredDriver {
         do{
             int kaunter = counter;
             sum = 0;
-           do {
+            do {
                int modul = kaunter % 10;
                sum+=modul;
                kaunter = kaunter/10;
-           }while (kaunter != 0);
+            }while (kaunter != 0);
          counter++;
          Thread.sleep(100);
          if(sum == 10){
@@ -30,5 +30,6 @@ public class ThredDriver {
          }
         }while (counter <= 100);
 
+        System.out.println("--------Main terminated--------");
     }
 }
