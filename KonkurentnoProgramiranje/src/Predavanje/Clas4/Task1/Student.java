@@ -1,4 +1,4 @@
-package Predavanje.Clas4;
+package Predavanje.Clas4.Task1;
 
 import java.util.LinkedList;
 

@@ -17,7 +17,16 @@ public class ThreadRandomList extends Thread{
         randomInt = new ArrayList<Integer>();
     }
 
-    private void generateNumber() throws InterruptedException {
+    private void addToList() throws IOException {
+        File file = new File("randomInt.txt");
+        FileWriter thread = new FileWriter(file, true);
+        for (Integer integer: randomInt) {
+            thread.write(integer+" ||\n");
+        }
+        thread.close();
+    }
+
+    private void generateNumber() throws InterruptedException, IOException {
         for(int i = 1; i <= 100; i++){
             int min = 1;
             int max = 100;
@@ -36,23 +45,15 @@ public class ThreadRandomList extends Thread{
             }
             Thread.sleep(100);
         }
-        try {
-            File file = new File("randomInt.txt");
-            FileWriter thread = new FileWriter(file, true);
-            for (Integer integer: randomInt) {
-                thread.write(integer+" ||\n");
-            }
-            thread.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
+        addToList();
     }
 
     @Override
     public void run() {
         try {
             generateNumber();
-        } catch (InterruptedException e) {
+        } catch (InterruptedException | IOException e) {
             throw new RuntimeException(e);
         }
     }

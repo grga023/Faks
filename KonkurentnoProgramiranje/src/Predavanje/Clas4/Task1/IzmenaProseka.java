@@ -1,6 +1,4 @@
-package Predavanje.Clas4;
-
-import java.util.LinkedList;
+package Predavanje.Clas4.Task1;
 
 public class IzmenaProseka extends Thread{
     private Student student;
