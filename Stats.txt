@@ -1,0 +1,5 @@
+2022/12/06 14:28:02Stanje niti threadCounter je: Nije suspendovana, a nit ThreadString je: Nije suspendovana..
+2022/12/06 14:28:04Stanje niti threadCounter je: suspendovana, a nit ThreadString je: Nije suspendovana..
+2022/12/06 14:28:06Stanje niti threadCounter je: suspendovana, a nit ThreadString je: suspendovana2022/12/06 14:28:12Stanje niti threadCounter je: suspendovana, a nit ThreadString je: Nije suspendovana..
+
+2022/12/06 14:28:16-program je terminiran!
