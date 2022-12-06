@@ -62,7 +62,6 @@ public class ThreadDriver {
             Thread.sleep(4000);
             System.out.println("Zavrseno");
             tc3.interrupt();
-            //tc3.setSuspended(false);
             tc5.terminateThread();
         }
     }
