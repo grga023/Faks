@@ -18,9 +18,7 @@ public class ThreadDriver {
             key  = scanner.next().charAt(0);
 
             switch (key) {
-                case '3' -> {
-                    tc3.start();
-                }
+                case '3' -> tc3.start();
                 case '5' -> tc5.start();
             }
 
