@@ -20,33 +20,50 @@ public class ThreadDriver {
             switch (key) {
                 case '3' -> {
                     tc3.start();
-                    susspendResume(tc3, tc5);
                 }
                 case '5' -> tc5.start();
-                default -> isTerminatted = true;
+            }
+
+            if(tc3.isAlive() && tc5.isAlive()){
+                isTerminatted = true;
             }
         }
+
+        suspendResume(tc3, tc5);
+
+        do {
+            Thread.sleep(700);
+        }while (tc3.isAlive() && tc5.isAlive());
+        System.out.println("---------Main terminated---------");
     }
 
-    private static void susspendResume(ThreadCounter3 tc3, ThreadCounter5 tc5) throws InterruptedException {
-        boolean prom = true;
-        do{
-            int kaunter = tc3.getCounter();
-            int sum = 0;
+    private static void suspendResume(ThreadCounter3 tc3, ThreadCounter5 tc5) throws InterruptedException {
+        if(tc3.isAlive() && tc5.isAlive()) {
+            boolean prom = true;
             do {
-                int modul = kaunter % 10;
-                sum+=modul;
-                kaunter = kaunter/10;
-            }while (kaunter != 0);
+                int kaunter = tc3.getCounter();
 
-            if(sum > 14){
-                tc3.setSuspended(true);
-                tc5.setSuspended(true);
-                Thread.sleep(2000);
-                tc5.setSuspended(false);
-                prom = false;
-            }
+                int sum = 0;
+                do {
+                    int modul = kaunter % 10;
+                    sum += modul;
+                    kaunter = kaunter / 10;
+                } while (kaunter != 0);
 
-        }while (prom);
+                if (sum > 14) {
+                    System.out.println("Zaustavljeno");
+                    tc3.setSuspended(true);
+                    tc5.setSuspended(true);
+                    Thread.sleep(4000);
+                    tc5.setSuspended(false);
+                    prom = false;
+                }
+            } while (prom);
+            Thread.sleep(4000);
+            System.out.println("Zavrseno");
+            tc3.interrupt();
+            //tc3.setSuspended(false);
+            tc5.terminateThread();
+        }
     }
 }
