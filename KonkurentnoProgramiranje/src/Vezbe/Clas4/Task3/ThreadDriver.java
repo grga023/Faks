@@ -52,13 +52,15 @@ public class ThreadDriver {
                     break;
                 case  't':
                     print(tcC,tcS, 's');
-                    tcS.terminateThread();
-                    tcC.terminateThread();
+                    tcS.interrupt();
+                    tcC.interrupt();
                     isTerminated = true;
                     break;
                 default: break;
             }
         }
+
+        System.out.println("---------Main terminated---------");
     }
     private static void print(ThreadCounter threadCounter, ThreadString threadString, char c) throws IOException {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -67,8 +69,8 @@ public class ThreadDriver {
         File file = new File("Stats.txt");
         FileWriter thread = new FileWriter(file, true);
         if(c == 'r')
-            thread.write(dtf.format(now) +"Stanje niti threadCounter je: "+(threadCounter.isSusoended()? "suspendovana":"Nije suspendovana")+ ", a nit ThreadString je: "+(threadString.isSusoended()? "suspendovana":"Nije suspendovana.")+".\n");
-        else thread.write("\n"+dtf.format(now)+"-program je terminiran!");
+            thread.write("["+dtf.format(now) +"] - Nit ThreadCounter "+(threadCounter.isSusoended()? " je suspendovana":"nije suspendovana")+ ", a nit ThreadString "+(threadString.isSusoended()? "je suspendovana":"nije suspendovana")+".\n");
+        else thread.write("\t\t\t\t\t["+dtf.format(now)+"] - program je terminiran!");
         thread.close();
     }
 

@@ -19,7 +19,7 @@ public class ThreadString extends Thread{
             try {
                 isSuspended();
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                return;
             }
 
             int min = 97;
@@ -30,7 +30,7 @@ public class ThreadString extends Thread{
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                return;
             }
 
         }

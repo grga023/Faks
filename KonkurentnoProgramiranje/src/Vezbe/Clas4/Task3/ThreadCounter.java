@@ -20,7 +20,7 @@ public class ThreadCounter extends Thread{
             try {
                 isSuspended();
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                return;
             }
 
             i++;
@@ -30,7 +30,7 @@ public class ThreadCounter extends Thread{
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                return;
             }
         }
         System.out.println("Counter stopped");
