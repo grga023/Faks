@@ -1,7 +1,5 @@
 package Vezbe.Clas3.Task3;
 
-import javax.sound.midi.Soundbank;
-
 public class ThreadDriver {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("-----------------Main started------------");

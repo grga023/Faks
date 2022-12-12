@@ -91,6 +91,11 @@ public class ThreadCounter5 extends Thread{
     }
 
     public void setSuspended(boolean suspended) {
+
         this.suspended = suspended;
+        if(this.suspended){
+            System.out.println("Thread counter5 suspended!!!!!!!!");
+        }
+        else System.out.println("Thread counter5 resumed!!!!!!!");
     }
 }

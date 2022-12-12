@@ -45,17 +45,16 @@ public class ThreadCounter3 extends Thread{
                     try {
                         isSuspended();
                     } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
+                        System.out.println(" --- Thread[" + getThreadID() + "] terminated --- ");
+                        return;
                     }
 
                     if (m < maxCount/2 ) {
-                        System.out.println("[" + getThreadID() + "] " + counter3[i]);
+                       System.out.println("[" + getThreadID() + "] " + counter3[i]);
                         m++;
                     }
 
                     this.counter = counter3[i];
-                    if(counter == 186)
-                        System.out.println("aaaaaaaaaaaaaaaaaaaaaaa");
 
                     if(i+1 == n) {
                         i = 0;
@@ -64,7 +63,8 @@ public class ThreadCounter3 extends Thread{
                     try {
                         Thread.sleep(300);
                     } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
+                        System.out.println(" --- Thread[" + getThreadID() + "] terminated --- ");
+                        return;
                     }
                 }
                 if(isTerminated){
@@ -93,6 +93,11 @@ public class ThreadCounter3 extends Thread{
     }
 
     public void setSuspended(boolean suspended) {
+
         this.suspended = suspended;
+        if(this.suspended){
+            System.out.println("Thread counter3 suspended!!!!!!!!");
+        }
+        else System.out.println("Thread counter3 resumed!!!!!!!");
     }
 }
