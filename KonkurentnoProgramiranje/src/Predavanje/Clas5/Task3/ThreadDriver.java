@@ -17,7 +17,7 @@ public class ThreadDriver {
         // create a semaphore with 2 permits for protecting access to shared object
         int semaphorePermits = 2;
 
-        Sjemafor sem = new Sjemafor(true);
+			Sjemafor sem = new Sjemafor(false);
        
         System.out.println("---------------------------");
 	    System.out.println("Working threads started");

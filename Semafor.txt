@@ -1,0 +1,43 @@
+WT1 started
+WT3 started
+WT2 started
+WT3 is waiting permision for shared object
+WT1 is waiting permision for shared object
+WT2 is waiting permision for shared object
+WT1 gets a permit
+WT1 incremented counter:: 1
+WT1 released permision for shared object
+WT2 gets a permit
+WT2 incremented counter:: 2
+WT1 is waiting permision for shared object
+WT3 gets a permit
+WT2 released permision for shared object
+WT2 is waiting permision for shared object
+WT3 incremented counter:: 3
+WT3 released permision for shared object
+WT1 gets a permit
+WT1 incremented counter:: 4
+WT3 is waiting permision for shared object
+WT2 gets a permit
+WT1 released permision for shared object
+WT2 incremented counter:: 5
+WT1 is waiting permision for shared object
+WT2 released permision for shared object
+WT3 gets a permit
+WT2 counter is: 2
+WT3 incremented counter:: 6
+WT2 terminated
+WT3 released permision for shared object
+WT1 gets a permit
+WT3 counter is: 2
+WT1 incremented counter:: 7
+WT3 terminated
+WT1 released permision for shared object
+WT1 counter is: 3
+WT1 terminated
+WT2 started
+WT2 is waiting permision for shared object
+WT3 started
+WT1 started
+WT1 is waiting permision for shared object
+WT3 is waiting permision for shared object
