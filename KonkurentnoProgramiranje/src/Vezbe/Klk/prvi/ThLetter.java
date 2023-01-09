@@ -35,7 +35,7 @@ public class ThLetter extends Thread{
                 System.out.println("Letter is: " + letter);
 
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(200);
                 } catch (InterruptedException e) {
                     return;
                 }
@@ -47,12 +47,6 @@ public class ThLetter extends Thread{
 
             if(isTerminated){
                 break;
-            }
-
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                return;
             }
 
         }
