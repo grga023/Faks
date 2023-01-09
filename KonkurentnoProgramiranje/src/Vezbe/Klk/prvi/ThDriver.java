@@ -17,21 +17,20 @@ public class ThDriver {
             System.out.println("Insert:");
             key = sc.next().charAt(0);
 
-            switch (key){
-                case 'b':
-                        tcL.start();
-                    break;
-                case 'n':
-                    tcL.setSuspended(true);
-                    break;
-                case  'r':
-                    tcL.setSuspended(false);
-                    break;
-                case 'x':
+            switch (key) {
+                case 'b' -> tcL.start();
+
+                case 'n' -> tcL.setSuspended(true);
+
+                case 'r' -> tcL.setSuspended(false);
+
+                case 'e' -> {
                     tcL.terminateThread();
-                case 'e':
                     isTerminated = true;
-                default: break;
+                }
+
+                default -> {
+                }
             }
         }
 
