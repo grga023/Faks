@@ -4,7 +4,7 @@ package Vezbe.Klk.prvi;
 import java.util.Scanner;
 
 public class ThDriver {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         ThLetter tcL = new ThLetter();
 
@@ -27,11 +27,15 @@ public class ThDriver {
                 case  'r':
                     tcL.setSuspended(false);
                     break;
+                case 'x':
+                    tcL.terminateThread();
                 case 'e':
                     isTerminated = true;
                 default: break;
             }
         }
+
+        Thread.sleep(1000);
 
         System.out.println("---------Main terminated---------");
     }
