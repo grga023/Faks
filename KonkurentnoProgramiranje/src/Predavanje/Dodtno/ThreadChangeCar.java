@@ -10,21 +10,11 @@ public class ThreadChangeCar extends Thread{
     public ThreadChangeCar(Car cars,String color, int vin){
         this.color = color;
         this.vin = vin;
-        carsToChange = new LinkedList<Car>();
-        carsToChange = cars.getCarsList();
-    }
-
-    private void changeCar(String color, int vin){
-        for (var car: carsToChange) {
-            if(car.getVin() == vin){
-                car.setColor(color);
-            }
-        }
+        cars.changeCar(color, vin);
     }
 
     @Override
     public void run() {
-        changeCar(color, vin);
         System.out.println("Changed");
     }
 }

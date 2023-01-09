@@ -2,7 +2,7 @@ package Predavanje.Dodtno;
 
 import java.util.LinkedList;
 
-public class Car {
+public class Car{
     private int vin;
 
     private int cubics;
@@ -13,26 +13,45 @@ public class Car {
     private String color;
     private String mark;
     private String model;
-    private LinkedList <Car> carsList;
+    private  LinkedList <Car> carsList;
     public Car(){
+
         carsList = new LinkedList<Car>();
     }
 
     public void addCar(Car car){
+
         carsList.add(car);
+    }
+    public void deleteCar(Car car, int vin){
+        for (var toDelete: carsList) {
+            if(toDelete.getVin() == vin)
+                carsList.remove(car);
+        }
+
     }
 
     public LinkedList<Car> getCarsList() {
+
         return carsList;
     }
 
     public void out(){
         String out;
         for (var car : carsList) {
-            out = car.mark+" "+ car.model+" is:"+car.color+" adnd have:"+car.cubics+"cc adn:"+car.ps+"ps. Maded:"+car.year+"year. Vin is:"+car.vin;
+            out = car.mark+"\t "+ car.model+"\t is: "+car.color+"\t and have: "+car.cubics+"cc,\t "+car.ps+"ps.\t Maded:"+car.year+"year. \tVin is:"+car.vin;
             System.out.println(out);
         }
     }
+
+    public void changeCar(String color, int vin){
+        for (var car: carsList) {
+            if(car.getVin() == vin){
+                car.setColor(color);
+            }
+        }
+    }
+
 
     public void setVin(int vin) {
         this.vin = vin;
@@ -89,4 +108,6 @@ public class Car {
     public String getModel() {
         return model;
     }
+
+
 }

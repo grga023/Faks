@@ -4,7 +4,7 @@ public class KrreatorStudent extends Thread{
 
     private Student student;
 
-    public KrreatorStudent(String ime, String prezime, String brIndeksa, int godStudija, int brPolozenihIspita, double prosek){
+    public KrreatorStudent(String ime, String prezime, String brIndeksa, int godStudija, int brPolozenihIspita, double prosek, Student st){
         student = new Student();
         student.setIme(ime);
         student.setPrezime(prezime);
@@ -12,12 +12,11 @@ public class KrreatorStudent extends Thread{
         student.setGodStudija(godStudija);
         student.setBrPolozenihIspita(brPolozenihIspita);
         student.setProsek(prosek);
+        st.addStudent(student);
     }
 
     @Override
     public void run() {
-        student.addStudent(student);
-        student.out();
         System.out.println("--------------------");
 
     }

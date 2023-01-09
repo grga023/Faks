@@ -13,6 +13,8 @@ public class IzmenaProseka extends Thread{
         student = new Student();
         students = new LinkedList<Student>();
         students = student.getListaStudenata();
+        izmeniProsek();
+
     }
 
     public void izmeniProsek(){
