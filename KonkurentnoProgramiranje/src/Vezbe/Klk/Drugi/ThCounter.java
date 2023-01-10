@@ -57,7 +57,9 @@ public class ThCounter extends Thread{
                 }
             }
 
-            if(i == 100){
+
+            // 99 je mesto 100 da ne bi  upadao u petlju 100 kada naidje parni brojac
+            if(counter == 99){
                 System.out.println("2 seconds break!");
                 Thread.sleep(2000);
                 System.out.println("Changed direction!");
