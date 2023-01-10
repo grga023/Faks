@@ -12,6 +12,9 @@ public class ThDriver {
         char key;
 
         Scanner sc = new Scanner(System.in);
+        System.out.println("To start insert s:");
+        key = sc.next().charAt(0);
+        isTerminated = key != 's';
 
         while (!isTerminated){
             System.out.println("Insert:");
