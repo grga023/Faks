@@ -58,7 +58,7 @@ public class ThLetter extends Thread{
     private void isSuspended() throws InterruptedException {
         if(suspended) counter++;
         while (suspended){
-            Thread.sleep(1000);
+            Thread.sleep(100);
         }
     }
     public void terminateThread(){

@@ -62,7 +62,7 @@ public class ThreadCounter extends Thread{
                 break;
             }
 
-            Thread.sleep(100);
+            Thread.sleep(200);
         }
     }
 
@@ -90,7 +90,7 @@ public class ThreadCounter extends Thread{
             if (isTerminated) {
                 break;
             }
-            Thread.sleep(100);
+            Thread.sleep(200);
         }
     }
 
