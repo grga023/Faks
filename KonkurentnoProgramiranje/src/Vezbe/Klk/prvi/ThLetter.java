@@ -30,9 +30,9 @@ public class ThLetter extends Thread{
                 letter = (char) i;
 
                 if(counter%2 != 0)
-                    letter = toUpper(letter);
-                else
                     letter = toLower(letter);
+                else
+                    letter = toUpper(letter);
 
                 System.out.println("Letter is: " + letter);
 
@@ -79,9 +79,9 @@ public class ThLetter extends Thread{
     public void setSuspended(boolean suspended) {
         this.suspended = suspended;
         if(this.suspended){
-            System.out.println("Thread string suspended!!!!!!!!");
+            System.out.println("Thread letter suspended!!!!!!!!");
         }
-        else System.out.println("Tread string resumed!!!!!!!");
+        else System.out.println("Tread letter resumed!!!!!!!");
     }
     public boolean isSusoended(){return this.suspended;}
 }
