@@ -28,10 +28,12 @@ public class ThLetter extends Thread{
                 }
 
                 letter = (char) i;
+
                 if(counter%2 != 0)
                     letter = toUpper(letter);
                 else
                     letter = toLower(letter);
+
                 System.out.println("Letter is: " + letter);
 
                 try {
@@ -75,7 +77,6 @@ public class ThLetter extends Thread{
         return a;
     }
     public void setSuspended(boolean suspended) {
-
         this.suspended = suspended;
         if(this.suspended){
             System.out.println("Thread string suspended!!!!!!!!");

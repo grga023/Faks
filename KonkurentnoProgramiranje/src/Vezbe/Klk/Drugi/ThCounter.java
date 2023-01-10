@@ -9,7 +9,7 @@ public class ThCounter extends Thread{
 
 
     public ThCounter(){
-        maxCount = 200;
+        maxCount = 100;
         counter = 0;
         c = 1;
         isTerminated = false;
@@ -36,7 +36,7 @@ public class ThCounter extends Thread{
     }
 
     private void counter() throws InterruptedException {
-        for (int i = 0; i <= maxCount; i++){
+        for (int i = 1; i <= maxCount; i++){
             try {
                 isSuspended();
             } catch (InterruptedException e) {
@@ -44,20 +44,20 @@ public class ThCounter extends Thread{
             }
 
             if(c %2 != 0) {
-                if(i %3 == 0){
+                if(i %2 == 0){
                     counter = i;
                     System.out.println("Counter is: "+ counter);
                 }
             }
 
             else{
-                if(i %5 == 0){
+                if(i %2 != 0){
                     counter = i;
                     System.out.println("Counter is: "+ counter);
                 }
             }
 
-            if(counter == 100){
+            if(i == 100){
                 System.out.println("2 seconds break!");
                 Thread.sleep(2000);
                 System.out.println("Changed direction!");
@@ -66,7 +66,7 @@ public class ThCounter extends Thread{
             }
 
             if(i == maxCount){
-                i = 0;
+                i = 1;
             }
 
             if(isTerminated){
@@ -88,7 +88,7 @@ public class ThCounter extends Thread{
                 break;
             }
 
-            if (i % 5 == 0) {
+            if (i % 2 != 0) {
                 counter = i;
                 System.out.println("Counter is: "+ counter);
             }
@@ -107,8 +107,8 @@ public class ThCounter extends Thread{
 
             this.suspended = suspended;
             if (this.suspended) {
-                System.out.println("Thread string suspended!!!!!!!!");
-            } else System.out.println("Tread string resumed!!!!!!!");
+                System.out.println("Thread counter suspended!!!!!!!!");
+            } else System.out.println("Tread counter resumed!!!!!!!");
         }
 
     private void isSuspended() throws InterruptedException {
